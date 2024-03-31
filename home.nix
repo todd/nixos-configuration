@@ -34,8 +34,6 @@
     # (pkgs.writeShellScriptBin "my-hello" ''
     #   echo "Hello, ${config.home.username}!"
     # '')
-    _1password
-    _1password-gui
     firefox
     htop
     neofetch

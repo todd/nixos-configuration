@@ -4,6 +4,9 @@
 
 { config, pkgs, ... }:
 
+let
+  username = "todd";
+in
 {
   imports =
     [ # Include the results of the hardware scan.
@@ -156,5 +159,12 @@
   nix = {
     package = pkgs.nixFlakes;
     extraOptions = "experimental-features = nix-command flakes";
+  };
+
+  # General Program Configuration
+  programs._1password.enable = true;
+  programs._1password-gui = {
+    enable = true;
+    polkitPolicyOwners = [ username ];
   };
 }
