@@ -167,4 +167,10 @@ in
     enable = true;
     polkitPolicyOwners = [ username ];
   };
+
+  programs.steam = {
+    enable = true;
+    remotePlay.openFirewall = true;
+    dedicatedServer.openFirewall = true;
+  };
 }
