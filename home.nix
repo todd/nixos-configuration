@@ -37,6 +37,9 @@
     firefox
     htop
     neofetch
+    signal-desktop
+    vlc
+    xclip
   ];
 
   # Home Manager is pretty good at managing dotfiles. The primary way to manage
