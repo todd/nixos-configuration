@@ -88,6 +88,17 @@
     };
   };
 
+  # TODO: Enable Gnome Terminal - installs via Home Manager broken as of 2024-03-31
+  # programs.gnome-terminal = {
+  #   enable = true;
+
+  #   profile = {
+  #     a4f369c2-efb0-11ee-826a-a74ccf4f633b = {
+  #       customCommand = "tmux";
+  #     };
+  #   };
+  # };
+
   programs.tmux = {
     enable = true;
     mouse = true;
