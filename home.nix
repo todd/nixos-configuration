@@ -135,4 +135,7 @@
       pkgs.vscode-extensions.editorconfig.editorconfig
     ];
   };
+
+  # General Services Configuration
+  services.dropbox.enable = true;
 }
