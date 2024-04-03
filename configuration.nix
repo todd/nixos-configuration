@@ -136,6 +136,7 @@ in
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     dropbox-cli
+    gnomeExtensions.appindicator
     neovim
   ];
 
