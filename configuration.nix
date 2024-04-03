@@ -72,6 +72,18 @@ in
   services.xserver.displayManager.gdm.enable = true;
   services.xserver.desktopManager.gnome.enable = true;
 
+  environment.gnome.excludePackages = (with pkgs; [
+    gnome-photos
+    gnome-text-editor
+    gnome-tour
+    gnome.geary
+    gnome.gnome-calendar
+    gnome.gnome-contacts
+    gnome.gnome-maps
+    gnome.gnome-music
+    gnome.totem
+  ]);
+
   # Configure keymap in X11
   services.xserver = {
     layout = "us";
@@ -124,7 +136,6 @@ in
   # $ nix search wget
   environment.systemPackages = with pkgs; [
     dropbox-cli
-    gnomeExtensions.appindicator
     neovim
   ];
 
@@ -142,8 +153,6 @@ in
 
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
-
-  services.udev.packages = with pkgs; [ gnome.gnome-settings-daemon ];
 
   # Open ports in the firewall.
   networking.firewall.allowedTCPPorts = [
