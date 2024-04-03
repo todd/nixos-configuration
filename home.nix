@@ -136,6 +136,31 @@
     ];
   };
 
-  # General Services Configuration
-  services.dropbox.enable = true;
+  # systemd Services
+  systemd.user.services = {
+    dropbox = {
+      Unit = {
+        Description = "Dropbox";
+      };
+
+      Install = {
+        WantedBy = [ "default.target" ];
+      };
+
+      Service = {
+        ExecStart = "${pkgs.dropbox}/bin/dropbox";
+        ExecReload = "${pkgs.coreutils}/bin/kill -HUP $MAINPID";
+        KillMode = "control-group";
+        Restart = "on-failure";
+        PrivateTmp = true;
+        ProtectSystem = "full";
+        Nice = 10;
+
+        Environment = [
+          "QT_PLUGIN_PATH=/run/current-system/sw/${pkgs.qt5.qtbase.qtPluginPrefix}"
+          "QML2_IMPORT_PATH=/run/current-system/sw/${pkgs.qt5.qtbase.qtQmlPrefix}"
+        ];
+      };
+    };
+  };
 }

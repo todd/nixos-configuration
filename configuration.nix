@@ -123,6 +123,8 @@ in
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
+    dropbox-cli
+    gnomeExtensions.appindicator
     neovim
   ];
 
@@ -141,9 +143,15 @@ in
   # Enable the OpenSSH daemon.
   # services.openssh.enable = true;
 
+  services.udev.packages = with pkgs; [ gnome.gnome-settings-daemon ];
+
   # Open ports in the firewall.
-  # networking.firewall.allowedTCPPorts = [ ... ];
-  # networking.firewall.allowedUDPPorts = [ ... ];
+  networking.firewall.allowedTCPPorts = [
+    17500 # Dropbox LAN Sync
+  ];
+  networking.firewall.allowedUDPPorts = [
+    17500 # Dropbox LAN Sync
+  ];
   # Or disable the firewall altogether.
   # networking.firewall.enable = false;
 
