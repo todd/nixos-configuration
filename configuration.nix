@@ -137,6 +137,7 @@ in
   environment.systemPackages = with pkgs; [
     dropbox-cli
     gnomeExtensions.appindicator
+    gnomeExtensions.dash-to-dock
     neovim
   ];
 
