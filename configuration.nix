@@ -84,6 +84,8 @@ in
     gnome.totem
   ]);
 
+  services.udev.packages = with pkgs; [ gnome.gnome-settings-daemon ];
+
   # Configure keymap in X11
   services.xserver = {
     layout = "us";
