@@ -192,4 +192,7 @@ in
     remotePlay.openFirewall = true;
     dedicatedServer.openFirewall = true;
   };
+
+  # General Services Configuration
+  services.fwupd.enable = true;
 }
