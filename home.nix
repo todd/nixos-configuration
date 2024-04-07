@@ -37,6 +37,7 @@
     firefox
     htop
     neofetch
+    # obsidian # Currently broken install for 23.11
     signal-desktop
     vlc
     xclip
